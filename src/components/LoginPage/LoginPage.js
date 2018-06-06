@@ -44,6 +44,16 @@ const styles = theme => ({
   },
 });
 
+const itemStyle = ({
+  reveCard: {
+    padding: '60px',
+	  margin: '10px',
+	  border: '1px solid #D8441C',
+    borderRadius: '25px',
+    width: '400px'
+  },
+})
+
 
 
 const mapStateToProps = state => ({
@@ -129,9 +139,11 @@ class LoginPage extends Component {
         </ul>
       <div className="login-content">
         <LoginNav />
-        <div>
+        <div style={{
+            justifyContent: "center",
+            display: "flex", marginTop: "200px"}}>
           {this.renderAlert()}
-          <form onSubmit={this.login}>
+          <form style={itemStyle.reveCard} onSubmit={this.login}>
             <h1 className='loginTitle'>Sign in to <b className="reveVoices">Rêve Voices</b></h1>
             <div>
 
