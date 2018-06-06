@@ -110,20 +110,15 @@ class InstructorFeedbackPage extends Component {
     if (this.props.user.userName && this.props.user.userName.instructor) {
       content = (
         <div>
-          <h1 className="ManageTitle">
-            FEEDBACK
-          </h1>
-          <div style={itemStyle.centerContent}>{weekList}</div>
-         
-          <h2 className="ManageTitle">
+          <p style={{fontSize: '20px', color: '#D8441C'}} className="ManageTitle">
             WEEK {this.props.state.instructorFeedBackReducer.weekNumberReducer}
-          </h2>
-          <div style={itemStyle.centerContent}>
-            <h2 className="ManageTitle">
-              <strong className="themeTitle">{weekTheme}</strong>
-            </h2>
-          </div>
-          <p className="ManageTitle">{this.props.state.scheduleReducer.weekDescriptionReducer.weekDescription}</p>
+          </p>
+          <div style={itemStyle.centerContent}>{weekList}</div>
+          
+          <p className="ManageTitle" style={{fontSize: '30px'}}><strong className="themeTitle">{weekTheme}</strong></p>
+    
+          <p className="ManageTitle" style={{bottomMargin: '0px'}}>{this.props.state.scheduleReducer.weekDescriptionReducer.weekDescription}</p>
+          <br/>
           {/* Feedback Container */}
           <div style={itemStyle.centerContent}>
             <textarea style={itemStyle.commentArea} value={this.state.newComment} onChange={this.handleComment}></textarea>

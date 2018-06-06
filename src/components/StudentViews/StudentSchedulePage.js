@@ -86,8 +86,8 @@ class StudentSchedulePage extends Component {
 		items: 50,
 		cols: 5,
 		rowHeight: 70,
-		maxRows: 6,
-		width: '100%',
+		maxRows: 5,
+		width: '85%',
 		onLayoutChange: function(){},
 		// This turns off compaction so you can place items wherever.
 		compactType: null,
@@ -176,9 +176,9 @@ class StudentSchedulePage extends Component {
 
     let focusInfo = this.props.state.scheduleReducer.viewFocusInfo.map((info) => {
       return (<div key={info.id}>
-              <h3>Strategy: {info.title}</h3>
-              <p>{info.summary}</p>
-              <h3>Resources</h3>
+              <h3 style={{fontFamily: 'lato'}}>Strategy: </h3>
+              <p>{info.title}</p>
+              <h3 style={{fontFamily: 'lato'}}>Resources</h3>
               <p>{info.link}</p>
             </div>)
     })
@@ -186,20 +186,15 @@ class StudentSchedulePage extends Component {
 		if (this.props.user.userName && this.props.user.userName.instructor === false) {
 			content = (
 				<div>
-
-					<h1 className="ManageTitle">STUDENT SCHEDULE</h1>
+<p  style={{fontSize: '20px', color: '#D8441C'}} className="ManageTitle">WEEK {weekNumber}</p>
 					<div style={itemStyle.centerContent}>{weekList}</div>
-					<div>
-            <h2 className="ManageTitle">
-              WEEK {weekNumber}
-            </h2>
+            
 						<h2 className="ManageTitle">
 							<strong className="themeTitle">{weekTheme}</strong>
 						</h2>
 						<div>
-							<p className="ManageTitle">{weekDescription}</p>
+							<p style={{marginBottom: '30px'}}className="ManageTitle">{weekDescription}</p>
 						</div>
-					</div>
 
 					{/* MODAL FOR INFO */}
 					<div>
@@ -215,18 +210,22 @@ class StudentSchedulePage extends Component {
 					</div>
 
 					<div>
+					<div style={itemStyle.centerContent}>
 					<table id="scheduleTable">
             			<thead>
               				<tr id="tableHeader">
-                				<th style={{width: '20%'}}>Monday</th>
-                				<th style={{width: '20%'}}>Tuesday</th>
-                				<th style={{width: '20%'}}>Wednesday</th>
-                				<th style={{width: '20%'}}>Thursday</th>
-                				<th style={{width: '20%'}}>Friday</th>
+                				<th style={{fontFamily: 'lato', width: '20%'}}>Monday</th>
+                				<th style={{fontFamily: 'lato', width: '20%'}}>Tuesday</th>
+                				<th style={{fontFamily: 'lato', width: '20%'}}>Wednesday</th>
+                				<th style={{fontFamily: 'lato', width: '20%'}}>Thursday</th>
+                				<th style={{fontFamily: 'lato', width: '20%'}}>Friday</th>
               				</tr>
             			</thead>
             		</table>
+					</div>
+					<div style={itemStyle.centerContent}>
 					<ReactGridLayout
+					style={{width: '85%'}}
               		layout={scheduleLayout}
 					isDraggable={false}
 					isResizable={false}
@@ -234,6 +233,9 @@ class StudentSchedulePage extends Component {
             		>
               			{scheduleItem}
             		</ReactGridLayout>
+					</div>
+					<div style={{height: '60px'}}>
+					</div>
 					</div>
 				</div>
 			);

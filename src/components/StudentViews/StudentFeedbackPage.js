@@ -90,7 +90,6 @@ class StudentFeedbackPage extends Component {
 			type: 'GET_FIRST_COMMENT',
 			payload: this.props.match.params.program_id
 		});
-		console.log('COMMENT STATUSES:', this.props)
 	}
 
 	componentDidUpdate() {
@@ -123,19 +122,20 @@ class StudentFeedbackPage extends Component {
 		if (this.props.user.userName && this.props.user.userName.instructor === false) {
 			content = (
 				<div>
-					<h1 className="ManageTitle">STUDENT FEEDBACK</h1>
+					<p style={{fontSize: '20px', color: '#D8441C'}}  className="ManageTitle">
+						WEEK {this.props.state.instructorFeedBackReducer.weekNumberReducer}
+					</p>
+		
 
 					<div style={itemStyle.centerContent}>{weekList}</div>
-					<h2 className="ManageTitle">
-						WEEK {this.props.state.instructorFeedBackReducer.weekNumberReducer}
-					</h2>
+					
 					<h2 className="ManageTitle">
 						<strong className="themeTitle">{weekTheme}</strong>
 					</h2>
 					<div>
 						<p className="ManageTitle">{this.props.state.scheduleReducer.weekDescriptionReducer.weekDescription}</p>
 					</div>
-
+					<br/>
 
 					<div style={itemStyle.centerContent}>
 						{/* {TEXT AREA} */}
